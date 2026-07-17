@@ -43,6 +43,20 @@
 *These are model & system metrics, measured directly. Product usage and revenue figures are shared privately with partners under NDA.*
 
 ---
+## See it in action
+
+<div align="center">
+<img src="docs/assets/screenshots/01_chat.png" alt="Chat — any language" width="185"/>
+<img src="docs/assets/screenshots/02_voice.png" alt="Voice" width="185"/>
+<img src="docs/assets/screenshots/03_workspace.png" alt="Workspace — code, build, deploy" width="185"/>
+<img src="docs/assets/screenshots/04_image.png" alt="Image generation" width="185"/>
+<img src="docs/assets/screenshots/05_phonepc.png" alt="Phone → PC" width="185"/>
+<img src="docs/assets/screenshots/06_file.png" alt="File & document analysis" width="185"/>
+</div>
+
+<div align="center"><sub>Multilingual chat · natural voice · connect your PC and run code · image generation · phone→PC control · file analysis</sub></div>
+
+---
 ## Quickstart
 
 ```bash
