@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 HAWK LoRA mini chat-completions uyumlu server (transformers+peft, GPU pod'unda).
-vLLM crash-loop yaptığı için KANITLI stack (eval bununla çalıştı). Yavaş ama güvenilir.
+the serving engine crash-loop yaptığı için KANITLI stack (eval bununla çalıştı). Yavaş ama güvenilir.
 Endpoint: GET /v1/models (hazır sinyali) + POST /v1/chat/completions (chat-completions uyumlu).
 enable_thinking=False (v0.3 uyumlu). 4-bit QLoRA -> 24GB'a sığar.
 """
 import json, os, re
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-BASE = os.getenv("BASE", "Qwen/Qwen3-8B")
+BASE = os.getenv("BASE", "OpenFoundation/Model")
 ADAPTER = os.getenv("ADAPTER", "/workspace/ad/adapter-hawk-base")
 
 # v0.8: tool-calling — compile_sft.py TOOLS_HEADER ile AYNI format (train/serve tutarlı).

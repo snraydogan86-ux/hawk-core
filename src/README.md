@@ -1,25 +1,31 @@
-# HAWK — Core Modules
+# HAWK — Source
 
-This directory contains real modules from the HAWK platform, published for transparency —
-so you can read HAWK's own engineering, not just its description. These are the genuine
-building blocks behind the architecture in [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
+Real modules from the HAWK platform, published for transparency. This is HAWK's own
+engineering — the systems behind the [architecture](../docs/ARCHITECTURE.md).
 
-> Note: these modules are extracted from the larger HAWK codebase for review. They reference
-> internal services and are meant to be *read* as evidence of real engineering, not installed
-> as a standalone package.
+> These modules are extracted from the larger HAWK codebase for review. They reference internal
+> services and are meant to be **read** as evidence of real engineering, not installed as a
+> standalone package. Third-party integrations (messaging, payments, specific cloud vendors) are
+> intentionally excluded from the open core.
 
-| Path | What it is |
-|------|------------|
-| `safety/safety_crisis.py` | Deterministic, model-independent crisis / self-harm safety layer. Detects intent, responds safely, validates output — never leaks methods, never fabricates helplines. |
-| `safety/prompt_shield.py` | Prompt-injection / jailbreak shield. |
-| `memory/memory_store.py` | Persistent, per-user memory — facts + history, strictly isolated per user. |
-| `memory/memory_pipeline.py` | The single write path for facts (safe extraction, no secrets). |
-| `model_family/model_registry.py` | The HAWK Base version state machine (draft → shadow → canary → production) with SHA-256 provenance. |
-| `model_family/promotion_controller.py` | Evidence-gated promotion: a version cannot reach users without passing benchmark + safety gates. |
-| `model_family/hawk_base_versions.py` | The version lineage and checksums. |
-| `ops/cost_guard.py` | Kill-switches (granular scopes) + daily budget guard. |
-| `serving/hawk_lora_server.py` | The lightweight adapter server that serves HAWK Base (foundation + LoRA). |
+## Layout
 
-Together these show what makes HAWK a real system: its own model with disciplined ML-ops
-(versioning, gates, provenance, rollback), a real safety layer, real per-user memory, and
-operational guardrails.
+| Package | Modules | What lives here |
+|---------|--------:|-----------------|
+| `core/` | 69 | The platform core — brain/reasoning, conversation engine, memory, safety, cost/kill-switch guardrails, autonomous operator, continuous learning, economy, and more. |
+| `core/model_family/` | 39 | **HAWK's ML-ops.** The model version state machine (draft → shadow → canary → production), evidence-gated promotion, SHA-256 provenance, benchmarking, and the version lineage — how every HAWK model is trained, checked, and shipped safely. |
+| `core/agent_orchestration/` | 12 | Multi-agent orchestration — decompose a goal, run specialized agents, review, synthesize. |
+| `core/hawk_core/` | 13 | Device pairing, workspace, and self-directed improvement primitives. |
+| `serving/` | 1 | The lightweight adapter server that serves HAWK Base (foundation + LoRA). |
+
+## Highlights worth reading
+
+- **`core/safety_crisis.py`** — deterministic, model-independent crisis / self-harm safety layer.
+- **`core/prompt_shield.py`** — prompt-injection / jailbreak shield.
+- **`core/memory_store.py`** + **`core/memory_pipeline.py`** — persistent, strictly per-user memory.
+- **`core/model_family/model_registry.py`** + **`promotion_controller.py`** — the state machine + gates that prevent any unproven model from reaching users.
+- **`core/cost_guard.py`** — granular kill-switches + daily budget guard.
+- **`serving/hawk_lora_server.py`** — how HAWK Base is served (foundation model + LoRA adapter).
+
+Together: HAWK's own model, disciplined ML-ops, a real safety stack, real memory, and
+operational guardrails — the substance behind "a real AI, not a wrapper."

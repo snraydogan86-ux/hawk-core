@@ -14,6 +14,7 @@
 [![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg)](eval/RESULTS.md)
 [![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg)](#language)
 [![Python](https://img.shields.io/badge/python-3.11-3776ab.svg)](#)
+[![Code](https://img.shields.io/badge/core-~18k%20lines-informational.svg)](src/)
 [![Status](https://img.shields.io/badge/status-live-success.svg)](#status)
 
 Created and owned by **Soner Aydoğan**.
@@ -89,7 +90,12 @@ hawk-core/
 ├── MODEL_CARD.md          ← HAWK Base: foundation, method, benchmark scores
 ├── CHANGELOG.md           ← version-by-version history of HAWK Base
 ├── docs/ARCHITECTURE.md   ← the agent OS in depth
-├── src/                   ← real HAWK modules (safety, memory, model-ops, serving)
+├── src/                   ← real HAWK modules (~135 files, ~18k lines of HAWK's own code)
+│   ├── core/                  platform core: brain, memory, safety, guardrails, learning
+│   ├── core/model_family/     ML-ops: version state machine, evidence-gated promotion
+│   ├── core/agent_orchestration/  multi-agent orchestration
+│   ├── core/hawk_core/        device pairing, workspace, self-improvement
+│   └── serving/               HAWK Base adapter server
 ├── training/              ← the reproducible fine-tuning pipeline
 │   ├── train_hawk_base_lora.py
 │   ├── requirements.txt
