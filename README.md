@@ -8,6 +8,7 @@
 
 **HAWK is not a chatbot wrapper.** It runs on **HAWK Base** — our own model, fine-tuned and served on our infrastructure — wrapped in a real agent operating system: persistent memory, tool use, multi-agent orchestration, self-healing, and voice.
 
+[![CI](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml/badge.svg)](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Model](https://img.shields.io/badge/model-HAWK%20Base-2ea44f.svg)](MODEL_CARD.md)
 [![Foundation](https://img.shields.io/badge/foundation-open%20weights-orange.svg)](MODEL_CARD.md)
@@ -27,6 +28,23 @@ Created and owned by **Soner Aydoğan**.
 
 ---
 
+
+---
+
+## Quickstart
+
+```bash
+# the deterministic safety layer — no setup, no GPU
+python examples/safety_demo.py
+
+# the open benchmark scorers
+cd eval && python run_bench.py --self-test
+```
+
+See [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) · [`docs/USAGE.md`](docs/USAGE.md).
+
+---
+
 ## Why HAWK is a real AI, not a wrapper
 
 Most "AI apps" are a thin UI over someone else's API. HAWK is different, and this repository is the proof:
@@ -42,18 +60,8 @@ Most "AI apps" are a thin UI over someone else's API. HAWK is different, and thi
 
 ## Architecture
 
-```
-                        ┌──────────────────────────┐
-   Voice / Text / File →│      HAWK Agent OS        │→ Answer / Action / Result
-                        └────────────┬─────────────┘
-              ┌──────────────┬───────┼────────┬──────────────┐
-        Memory Engine   Şahin Core   Tool    Agent          Self-Healing
-        (persistent)    (reasoning)  Engine  Orchestrator   (auto-recovery)
-                              │
-                        ┌─────┴─────┐
-                        │ HAWK Base │  ← our own fine-tuned model
-                        └───────────┘
-```
+<div align="center"><img src="docs/assets/architecture.svg" alt="HAWK Architecture" width="820"/></div>
+
 
 | Component | What it does |
 |---|---|

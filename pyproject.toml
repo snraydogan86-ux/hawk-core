@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hawk-core"
+version = "0.9.0"
+description = "HAWK — a personal AI operating system with its own fine-tuned model (HAWK Base)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Soner Aydoğan" }]
+keywords = ["ai", "llm", "agent", "fine-tuning", "qlora", "multilingual"]
+
+[project.urls]
+Homepage = "https://github.com/snraydogan86-ux/hawk-core"
+Documentation = "https://github.com/snraydogan86-ux/hawk-core/tree/main/docs"
