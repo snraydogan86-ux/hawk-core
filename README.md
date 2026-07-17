@@ -6,19 +6,18 @@
 
 ### A personal AI operating system with its own fine-tuned model.
 
-**HAWK is not a chatbot wrapper.** It runs on **HAWK Base** — our own model, fine-tuned and served on our infrastructure — wrapped in a real agent operating system: persistent memory, tool use, multi-agent orchestration, self-healing, and voice.
+**HAWK is not a chatbot wrapper.** It runs on **HAWK Base** — our own model, fine-tuned and served on our infrastructure — wrapped in a real agent operating system: persistent memory, tool use, multi-agent orchestration, cost-aware routing, self-improvement, self-healing, and voice.
 
 [![CI](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml/badge.svg)](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Model](https://img.shields.io/badge/model-HAWK%20Base-2ea44f.svg)](MODEL_CARD.md)
 [![Foundation](https://img.shields.io/badge/foundation-open%20weights-orange.svg)](MODEL_CARD.md)
 [![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg)](eval/RESULTS.md)
-[![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg)](#language)
-[![Python](https://img.shields.io/badge/python-3.11-3776ab.svg)](#)
+[![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg)](#-multilingual)
 [![Code](https://img.shields.io/badge/core-~18k%20lines-informational.svg)](src/)
-[![Status](https://img.shields.io/badge/status-live-success.svg)](#status)
+[![Status](https://img.shields.io/badge/status-live-success.svg)](#-status)
 
-Created and owned by **Soner Aydoğan**.
+**Created and owned by Soner Aydoğan.**
 
 </div>
 
@@ -28,10 +27,7 @@ Created and owned by **Soner Aydoğan**.
 
 ---
 
-
----
-
-## Quickstart
+## 🚀 Quickstart
 
 ```bash
 # the deterministic safety layer — no setup, no GPU
@@ -45,84 +41,174 @@ See [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) · [`docs/USAGE.md`](do
 
 ---
 
-## Why HAWK is a real AI, not a wrapper
+## 🌟 What HAWK is
 
-Most "AI apps" are a thin UI over someone else's API. HAWK is different, and this repository is the proof:
+HAWK is a personal and enterprise AI that helps you in daily life and work. It chats, analyzes images and documents, talks with you by voice, runs software tasks on your own computer, remembers you across sessions, and can act autonomously through its own tools — with privacy and safety first.
 
-- **Our own model — HAWK Base.** A model we fine-tune ourselves (see [`training/`](training/)) on an **open-source foundation model (Qwen3-8B, Apache-2.0)** using QLoRA. We own the training pipeline, the data, the versioning, and the deployment. HAWK Base serves **100% of normal conversations** on our own GPU.
-- **A reproducible training pipeline** ([`training/train_hawk_base_lora.py`](training/train_hawk_base_lora.py)) — anyone can read exactly how HAWK Base is built.
-- **An open benchmark** ([`eval/`](eval/)) — 73 deterministic tests (Turkish, English, multilingual, reasoning, code, tool-calling, memory, safety) with published scores per version. No cherry-picking.
-- **A real agent OS**, not a prompt: Memory Engine, Reasoning Engine (Şahin Core), Agent Orchestrator, Tool Engine, Self-Healing.
-
-> **On foundations:** HAWK Base is fine-tuned on an open-weight foundation model (Qwen3-8B, Apache-2.0). This is how every serious AI product is built — training an 8B model from scratch costs millions and adds no value. The engineering, data, alignment, and product are ours. We disclose our foundation openly; that transparency is a strength, not a weakness.
+**More than a chatbot:** HAWK uses its own tools, learns, and can operate autonomously. And unlike a wrapper, **its brain is its own** — HAWK Base, a model we fine-tune and serve ourselves.
 
 ---
 
-## Architecture
+## ✨ Features
 
-<div align="center"><img src="docs/assets/architecture.svg" alt="HAWK Architecture" width="820"/></div>
+### 💬 Smart Chat (multilingual)
+Natural conversation with fast, context-aware answers in **7 languages** (Turkish, English, German, French, Spanish, Arabic, Russian). Language is auto-detected from your message — HAWK replies natively, not translated. Conversation history persists; pick up where you left off.
 
+### 🎙️ Voice
+Real-time voice conversation — speak instead of type. HAWK transcribes (speech→text), understands, and replies by voice, with the same multilingual behavior as text.
 
-| Component | What it does |
-|---|---|
-| **HAWK Base** | Our own fine-tuned model. Serves normal conversation, tool-calling, reasoning, code. |
-| **Memory Engine** | Persistent, per-user memory. Remembers you, your goals, your projects across sessions. |
-| **Şahin Core** | The reasoning engine — plans, decides which tools to use, orchestrates multi-step work. |
-| **Tool Engine** | Web, files, images, device control — HAWK acts, not just talks. |
-| **Agent Orchestrator** | Multiple specialized agents cooperating on complex goals. |
-| **Self-Healing** | Watches its own health, recovers from failures automatically. |
+### 🖼️ Vision & File analysis
+Upload photos, PDF, Word, Excel, CSV or text — HAWK reads, explains, summarizes, and answers questions about the content.
 
-See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for detail.
+### 🎨 Image generation & editing
+Describe it and HAWK creates images, logos, and social posts — plus object removal, background change, and edits.
+
+### 🧠 Persistent memory
+HAWK remembers you, your goals, your projects and preferences — across sessions and across surfaces (chat, voice, workspace). Users are **strictly isolated**: one user can never see another's memory.
+
+### 💻 Workspace (Phone → PC)
+Connect your computer; HAWK writes code, creates files, runs commands and builds projects — driven from your phone, with an approval step at every risky action.
+
+### 🛡️ Safety by design
+A dedicated crisis / self-harm safety layer, prompt-injection shield, and strict handling of personal data — verified on every model version.
 
 ---
 
-## HAWK Base — the model
+## 🧩 Capabilities
+
+| Capability | Status |
+|---|:--:|
+| 💬 Chat (multilingual, 7 languages) | ✅ |
+| 🎙️ Voice — speech + real-time conversation | ✅ |
+| 🖼️ Vision — image analysis | ✅ |
+| 📄 File analysis (PDF/DOCX/XLSX/CSV/TXT/image) | ✅ |
+| 🧠 Persistent, per-user isolated memory | ✅ |
+| 💻 Workspace — phone → PC, code & commands | ✅ |
+| 🌐 Web intelligence — search + live data | ✅ |
+| 🛠️ Tool-calling — the model calls real tools | ✅ |
+| 🧮 Smart model router + 💰 cost guardian | ✅ |
+| 🚦 Evidence-gated model promotion (ML-ops) | ✅ |
+| 🎨 Image generation / editing | ✅ |
+| 🤖 Multi-agent orchestration | ✅ |
+| 🔁 Self-improvement loop | ✅ |
+
+---
+
+## 🧠 HAWK Base — the model
 
 | | |
 |---|---|
-| **Foundation** | Qwen3-8B (open-weight, Apache-2.0) |
+| **Foundation** | open-weight foundation model (Apache-2.0) |
 | **Method** | QLoRA (4-bit nf4), prompt-masked SFT |
 | **Languages** | Turkish, English, German, French, Spanish, Arabic, Russian |
-| **Capabilities** | Natural conversation, tool-calling, reasoning, code, structured output, memory, safety |
-| **Serving** | Our own GPU (on-demand + always-warm) |
+| **Capabilities** | conversation, tool-calling, reasoning, code, structured output, memory, safety |
+| **Serving** | our own GPU (on-demand + always-warm) |
+| **Benchmark** | 64/73 and improving — see [RESULTS](eval/RESULTS.md) |
 
-Full details + benchmark scores: [`MODEL_CARD.md`](MODEL_CARD.md).
+Full details: [`MODEL_CARD.md`](MODEL_CARD.md). Training pipeline: [`training/`](training/).
+
+> **On foundations:** HAWK Base is fine-tuned on an open-weight foundation model. This is how every serious AI product is built — training a model from scratch costs millions and adds no value. The engineering, data, alignment, and product are ours. We disclose our foundation openly; that transparency is a strength.
 
 ---
 
-## Repository layout
+## 🧮 Smart Model Router & Cost Economy
+
+HAWK doesn't run the biggest model on every request. Each request is classified and routed to the right tier — this is what makes HAWK both **fast** and **cheap to operate**.
+
+- **Router** — for each request it estimates intent, complexity, tokens, tool count, and whether deep reasoning is needed, then routes: simple → the lightest path, normal → **HAWK Base (our own model)**, hardest/comprehensive → the strongest available tier.
+- **Escalation** — after a response, confidence is scored; low confidence escalates one tier (bounded).
+- **AI Economy Manager** ([`src/core/economy_manager.py`](src/core/economy_manager.py)) — tracks daily/hourly spend, tokens, average cost, and requests against a daily budget, and tightens routing as the budget fills.
+- **Cost Guardian** ([`src/core/cost_guard.py`](src/core/cost_guard.py)) — response/tool caches avoid re-doing the same expensive work, with granular kill-switches and a hard daily budget.
+
+---
+
+## 🚦 ML-Ops — how a model reaches users
+
+HAWK ships models like a disciplined AI lab, not by hand. See [`src/core/model_family/`](src/core/model_family/).
+
+```
+draft → shadow → canary → production
+```
+
+- Every version is trained, **benchmarked on the same 73-test suite**, and checksummed (SHA-256 provenance).
+- A version **cannot reach users** without passing benchmark + safety gates ([`promotion_controller.py`](src/core/model_family/promotion_controller.py)).
+- **Automatic rollback** on regression (error rate / latency / safety).
+
+This is the difference between "a prompt" and a real model operation.
+
+---
+
+## 🤖 Multi-agent orchestration
+
+For complex goals, HAWK runs multiple specialized agents that decompose the problem, work in parallel, review each other, and synthesize a result — see [`src/core/agent_orchestration/`](src/core/agent_orchestration/).
+
+## 🔁 Self-improvement
+
+HAWK analyzes itself, generates tasks and plans, and defines sub-agents within safe bounds — it produces plans, drafts, and reports; it never executes critical actions automatically. Every critical action (deploy, migration, payment, publishing) is **human-approved**. See [`src/core/self_improvement_system.py`](src/core/self_improvement_system.py).
+
+## 🌍 Multilingual
+
+Language is auto-detected from each message and HAWK replies natively — Turkish, English, German, French, Spanish, Arabic, Russian — identically in text and voice.
+
+---
+
+## 🏗️ Architecture
+
+<div align="center"><img src="docs/assets/architecture.svg" alt="HAWK Architecture" width="820"/></div>
+
+| Component | What it does |
+|---|---|
+| **HAWK Base** | Our own fine-tuned model. Serves conversation, tool-calling, reasoning, code. |
+| **Memory Engine** | Persistent, per-user memory, strictly isolated. |
+| **Şahin Core** | The reasoning engine — plans and orchestrates multi-step work. |
+| **Tool Engine** | Web, files, images, device control — HAWK acts, not just talks. |
+| **Agent Orchestrator** | Specialized agents cooperating on complex goals. |
+| **Self-Healing** | Watches its own health, recovers automatically. |
+
+Deep dive: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+---
+
+## 📁 Repository layout
 
 ```
 hawk-core/
-├── README.md              ← you are here
-├── MODEL_CARD.md          ← HAWK Base: foundation, method, benchmark scores
-├── CHANGELOG.md           ← version-by-version history of HAWK Base
-├── docs/ARCHITECTURE.md   ← the agent OS in depth
-├── src/                   ← real HAWK modules (~135 files, ~18k lines of HAWK's own code)
-│   ├── core/                  platform core: brain, memory, safety, guardrails, learning
+├── README.md              MODEL_CARD.md   CHANGELOG.md   ROADMAP.md
+├── docs/                  architecture, getting-started, usage, diagram (SVG)
+├── src/                   ~135 modules, ~18k lines of HAWK's own code
+│   ├── core/                  brain, memory, safety, guardrails, learning, economy
 │   ├── core/model_family/     ML-ops: version state machine, evidence-gated promotion
 │   ├── core/agent_orchestration/  multi-agent orchestration
 │   ├── core/hawk_core/        device pairing, workspace, self-improvement
 │   └── serving/               HAWK Base adapter server
-├── training/              ← the reproducible fine-tuning pipeline
-│   ├── train_hawk_base_lora.py
-│   ├── requirements.txt
-│   └── data_sample.jsonl  ← sample of the SFT format
-├── eval/                  ← the open benchmark (73 tests) + scorers
-│   ├── run_bench.py · score.py · testset.jsonl
-│   └── RESULTS.md         ← scores per version
-├── CONTRIBUTING.md · SECURITY.md · CODE_OF_CONDUCT.md · CITATION.cff
-└── LICENSE                ← Apache-2.0
+├── training/              reproducible QLoRA fine-tuning pipeline + requirements + data sample
+├── eval/                  the open benchmark (73 tests) + scorers + RESULTS per version
+├── examples/              runnable demos (safety layer, benchmark)
+├── tests/                 unit tests (CI-verified)
+├── CONTRIBUTING · SECURITY · CODE_OF_CONDUCT · CITATION
+└── LICENSE                Apache-2.0
 ```
 
 ---
 
-## Status
+## 📚 Documentation
 
-HAWK is in active development toward global launch. HAWK Base is live and serving real users today.
+- 📖 [Getting Started](docs/GETTING_STARTED.md) · [Usage](docs/USAGE.md) · [Architecture](docs/ARCHITECTURE.md)
+- 🧠 [Model Card](MODEL_CARD.md) · 📊 [Benchmark Results](eval/RESULTS.md) · 📝 [Changelog](CHANGELOG.md) · 🗺️ [Roadmap](ROADMAP.md)
+- 🤝 [Contributing](CONTRIBUTING.md) · 🔒 [Security](SECURITY.md) · [Code of Conduct](CODE_OF_CONDUCT.md)
 
-**HAWK is built and owned by Soner Aydoğan.**
+---
 
-## License
+## 🔮 Status
 
-Apache-2.0 — see [`LICENSE`](LICENSE).
+HAWK is in active development toward global launch. **HAWK Base is live and serving real users today.**
+
+## 📄 License & ownership
+
+**HAWK is built and owned by Soner Aydoğan** (© 2026). Distributed under the **Apache-2.0** license — see [`LICENSE`](LICENSE).
+
+<div align="center">
+
+**🦅 HAWK — Intelligent. Autonomous. Its own.**
+
+</div>
