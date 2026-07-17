@@ -178,6 +178,6 @@ HAWK is in active development toward global launch. **HAWK Base is live and serv
 
 <div align="center">
 
-** HAWK — Intelligent. Autonomous. Its own.**
+**HAWK — Intelligent. Autonomous. Its own.**
 
 </div>
