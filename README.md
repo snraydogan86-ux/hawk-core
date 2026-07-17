@@ -89,6 +89,7 @@ hawk-core/
 ├── MODEL_CARD.md          ← HAWK Base: foundation, method, benchmark scores
 ├── CHANGELOG.md           ← version-by-version history of HAWK Base
 ├── docs/ARCHITECTURE.md   ← the agent OS in depth
+├── src/                   ← real HAWK modules (safety, memory, model-ops, serving)
 ├── training/              ← the reproducible fine-tuning pipeline
 │   ├── train_hawk_base_lora.py
 │   ├── requirements.txt
