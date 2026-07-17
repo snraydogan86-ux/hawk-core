@@ -2,7 +2,7 @@
 Run:  python examples/safety_demo.py
 """
 import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src", "core"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "core"))
 import safety_crisis as sc
 
 MESSAGES = [

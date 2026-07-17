@@ -1,6 +1,6 @@
 """Tests for HAWK's deterministic crisis-safety layer."""
 import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src", "core"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "core"))
 import safety_crisis as sc
 
 

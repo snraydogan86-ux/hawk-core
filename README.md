@@ -8,14 +8,14 @@
 
 **HAWK is not a chatbot wrapper.** It runs on **HAWK Base** — our own model, fine-tuned and served on our infrastructure — wrapped in a real agent operating system: persistent memory, tool use, multi-agent orchestration, cost-aware routing, self-improvement, self-healing, and voice.
 
-[![CI](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml/badge.svg)](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Model](https://img.shields.io/badge/model-HAWK%20Base-2ea44f.svg)](MODEL_CARD.md)
-[![Foundation](https://img.shields.io/badge/foundation-open%20weights-orange.svg)](MODEL_CARD.md)
-[![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg)](eval/RESULTS.md)
-[![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg)](#-multilingual)
-[![Code](https://img.shields.io/badge/core-~18k%20lines-informational.svg)](src/)
-[![Status](https://img.shields.io/badge/status-live-success.svg)](#-status)
+[![CI](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/snraydogan86-ux/hawk-core/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
+[![Model](https://img.shields.io/badge/model-HAWK%20Base-2ea44f.svg?style=flat-square)](MODEL_CARD.md)
+[![Foundation](https://img.shields.io/badge/foundation-open%20weights-orange.svg?style=flat-square)](MODEL_CARD.md)
+[![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg?style=flat-square)](eval/RESULTS.md)
+[![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg?style=flat-square)](#-multilingual)
+[![Code](https://img.shields.io/badge/core-~18k%20lines-informational.svg?style=flat-square)](core/)
+[![Status](https://img.shields.io/badge/status-live-success.svg?style=flat-square)](#-status)
 
 **Created and owned by Soner Aydoğan.**
 
@@ -117,21 +117,21 @@ HAWK doesn't run the biggest model on every request. Each request is classified 
 
 - **Router** — for each request it estimates intent, complexity, tokens, tool count, and whether deep reasoning is needed, then routes: simple → the lightest path, normal → **HAWK Base (our own model)**, hardest/comprehensive → the strongest available tier.
 - **Escalation** — after a response, confidence is scored; low confidence escalates one tier (bounded).
-- **AI Economy Manager** ([`src/core/economy_manager.py`](src/core/economy_manager.py)) — tracks daily/hourly spend, tokens, average cost, and requests against a daily budget, and tightens routing as the budget fills.
-- **Cost Guardian** ([`src/core/cost_guard.py`](src/core/cost_guard.py)) — response/tool caches avoid re-doing the same expensive work, with granular kill-switches and a hard daily budget.
+- **AI Economy Manager** ([`core/economy_manager.py`](core/economy_manager.py)) — tracks daily/hourly spend, tokens, average cost, and requests against a daily budget, and tightens routing as the budget fills.
+- **Cost Guardian** ([`core/cost_guard.py`](core/cost_guard.py)) — response/tool caches avoid re-doing the same expensive work, with granular kill-switches and a hard daily budget.
 
 ---
 
 ## 🚦 ML-Ops — how a model reaches users
 
-HAWK ships models like a disciplined AI lab, not by hand. See [`src/core/model_family/`](src/core/model_family/).
+HAWK ships models like a disciplined AI lab, not by hand. See [`ml_ops/`](ml_ops/).
 
 ```
 draft → shadow → canary → production
 ```
 
 - Every version is trained, **benchmarked on the same 73-test suite**, and checksummed (SHA-256 provenance).
-- A version **cannot reach users** without passing benchmark + safety gates ([`promotion_controller.py`](src/core/model_family/promotion_controller.py)).
+- A version **cannot reach users** without passing benchmark + safety gates ([`promotion_controller.py`](ml_ops/promotion_controller.py)).
 - **Automatic rollback** on regression (error rate / latency / safety).
 
 This is the difference between "a prompt" and a real model operation.
@@ -140,11 +140,11 @@ This is the difference between "a prompt" and a real model operation.
 
 ## 🤖 Multi-agent orchestration
 
-For complex goals, HAWK runs multiple specialized agents that decompose the problem, work in parallel, review each other, and synthesize a result — see [`src/core/agent_orchestration/`](src/core/agent_orchestration/).
+For complex goals, HAWK runs multiple specialized agents that decompose the problem, work in parallel, review each other, and synthesize a result — see [`orchestration/`](orchestration/).
 
 ## 🔁 Self-improvement
 
-HAWK analyzes itself, generates tasks and plans, and defines sub-agents within safe bounds — it produces plans, drafts, and reports; it never executes critical actions automatically. Every critical action (deploy, migration, payment, publishing) is **human-approved**. See [`src/core/self_improvement_system.py`](src/core/self_improvement_system.py).
+HAWK analyzes itself, generates tasks and plans, and defines sub-agents within safe bounds — it produces plans, drafts, and reports; it never executes critical actions automatically. Every critical action (deploy, migration, payment, publishing) is **human-approved**. See [`core/self_improvement_system.py`](core/self_improvement_system.py).
 
 ## 🌍 Multilingual
 
@@ -173,20 +173,18 @@ Deep dive: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ```
 hawk-core/
-├── README.md              MODEL_CARD.md   CHANGELOG.md   ROADMAP.md
-├── docs/                  architecture, getting-started, usage, diagram (SVG)
-├── src/                   ~135 modules, ~18k lines of HAWK's own code
-│   ├── core/                  brain, memory, safety, guardrails, learning, economy
-│   ├── core/model_family/     ML-ops: version state machine, evidence-gated promotion
-│   ├── core/agent_orchestration/  multi-agent orchestration
-│   ├── core/hawk_core/        device pairing, workspace, self-improvement
-│   └── serving/               HAWK Base adapter server
-├── training/              reproducible QLoRA fine-tuning pipeline + requirements + data sample
-├── eval/                  the open benchmark (73 tests) + scorers + RESULTS per version
-├── examples/              runnable demos (safety layer, benchmark)
-├── tests/                 unit tests (CI-verified)
-├── CONTRIBUTING · SECURITY · CODE_OF_CONDUCT · CITATION
-└── LICENSE                Apache-2.0
+├── core/            HAWK's platform core — brain, conversation, memory, safety, learning, economy
+├── ml_ops/          model version state machine + evidence-gated promotion (shadow→canary→prod)
+├── orchestration/   multi-agent orchestration
+├── serving/         HAWK Base adapter server
+├── workspace/       device pairing, workspace, self-improvement
+├── training/        reproducible QLoRA fine-tuning pipeline (+ requirements, data sample)
+├── eval/            the open benchmark (73 tests) + scorers + RESULTS per version
+├── examples/        runnable demos (safety layer, benchmark)
+├── tests/           unit tests (CI-verified)
+├── docs/            architecture, getting-started, usage, diagram
+├── MODEL_CARD.md · CHANGELOG.md · ROADMAP.md · CONTRIBUTING · SECURITY · CITATION
+└── LICENSE          Apache-2.0
 ```
 
 ---
