@@ -14,7 +14,10 @@
 [![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg?style=flat-square)](eval/RESULTS.md)
 [![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg?style=flat-square)](#multilingual)
 [![Code](https://img.shields.io/badge/core-~18k%20lines-informational.svg?style=flat-square)](core/)
+[![Website](https://img.shields.io/badge/live-hawk--operasyon.com-2ea44f.svg?style=flat-square)](https://www.hawk-operasyon.com)
 [![Status](https://img.shields.io/badge/status-live-success.svg?style=flat-square)](#status)
+
+### ▶ Try the live product — **[hawk-operasyon.com](https://www.hawk-operasyon.com)**
 
 **Created and owned by Soner Aydoğan.**
 
@@ -23,6 +26,21 @@
 ---
 
 > **For investors & partners:** HAWK owns its model, its training pipeline, its benchmark, and its agent OS — all in this repository. This is not a reseller of someone else's API; it is a real AI product with its own model serving real users today. Read the [Model Card](MODEL_CARD.md) and [benchmark results](eval/RESULTS.md).
+
+---
+## By the numbers
+
+| | |
+|---|---|
+| **Live product** | [hawk-operasyon.com](https://www.hawk-operasyon.com) — serving real users today |
+| **Own model** | HAWK Base handles normal conversation on our own GPU (no third-party chat API in the hot path) |
+| **Open benchmark** | **64/73** on our reproducible 73-test suite — improving every version |
+| **Model versions shipped** | 9 (v0.1 → v0.9), each evidence-gated: shadow → canary → production |
+| **Languages** | 7 native (TR · EN · DE · FR · ES · AR · RU), text and voice |
+| **Typical latency** | ~1–4 s per response (own model, own GPU) |
+| **Safety** | dedicated crisis layer + injection shield, verified every version |
+
+*These are model & system metrics, measured directly. Product usage and revenue figures are shared privately with partners under NDA.*
 
 ---
 ## Quickstart
