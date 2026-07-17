@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🦅 HAWK
+<img src="docs/assets/hawk-logo.png" alt="HAWK" width="220"/>
+
+# HAWK
 
 ### A personal AI operating system with its own fine-tuned model.
 
