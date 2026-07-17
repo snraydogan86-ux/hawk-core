@@ -6,9 +6,21 @@
 
 **HAWK is not a chatbot wrapper.** It runs on **HAWK Base** — our own model, fine-tuned and served on our infrastructure — wrapped in a real agent operating system: persistent memory, tool use, multi-agent orchestration, self-healing, and voice.
 
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Model](https://img.shields.io/badge/model-HAWK%20Base-2ea44f.svg)](MODEL_CARD.md)
+[![Foundation](https://img.shields.io/badge/foundation-open%20weights-orange.svg)](MODEL_CARD.md)
+[![Benchmark](https://img.shields.io/badge/benchmark-64%2F73-brightgreen.svg)](eval/RESULTS.md)
+[![Languages](https://img.shields.io/badge/languages-7-blueviolet.svg)](#language)
+[![Python](https://img.shields.io/badge/python-3.11-3776ab.svg)](#)
+[![Status](https://img.shields.io/badge/status-live-success.svg)](#status)
+
 Created and owned by **Soner Aydoğan**.
 
 </div>
+
+---
+
+> **For investors & partners:** HAWK owns its model, its training pipeline, its benchmark, and its agent OS — all in this repository. This is not a reseller of someone else's API; it is a real AI product with its own model serving real users today. Read the [Model Card](MODEL_CARD.md) and [benchmark results](eval/RESULTS.md).
 
 ---
 
@@ -73,11 +85,16 @@ Full details + benchmark scores: [`MODEL_CARD.md`](MODEL_CARD.md).
 hawk-core/
 ├── README.md              ← you are here
 ├── MODEL_CARD.md          ← HAWK Base: foundation, method, benchmark scores
+├── CHANGELOG.md           ← version-by-version history of HAWK Base
 ├── docs/ARCHITECTURE.md   ← the agent OS in depth
 ├── training/              ← the reproducible fine-tuning pipeline
 │   ├── train_hawk_base_lora.py
+│   ├── requirements.txt
 │   └── data_sample.jsonl  ← sample of the SFT format
 ├── eval/                  ← the open benchmark (73 tests) + scorers
+│   ├── run_bench.py · score.py · testset.jsonl
+│   └── RESULTS.md         ← scores per version
+├── CONTRIBUTING.md · SECURITY.md · CODE_OF_CONDUCT.md · CITATION.cff
 └── LICENSE                ← Apache-2.0
 ```
 

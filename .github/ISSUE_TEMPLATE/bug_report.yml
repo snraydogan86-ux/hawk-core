@@ -1,0 +1,19 @@
+name: Bug report
+description: Report a problem with HAWK
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Clear description of the bug and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+  - type: input
+    id: version
+    attributes:
+      label: HAWK Base version (if known)

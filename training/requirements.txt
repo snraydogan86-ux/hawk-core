@@ -1,0 +1,9 @@
+# HAWK Base fine-tuning environment (GPU box only).
+# torch is provided by the CUDA base image and is intentionally not pinned here.
+transformers==4.53.2
+peft==0.14.0
+accelerate>=1.6.0,<2.0
+bitsandbytes==0.44.1
+datasets==3.0.1
+sentencepiece==0.2.0
+safetensors==0.4.5

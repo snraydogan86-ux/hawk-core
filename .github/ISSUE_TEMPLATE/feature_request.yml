@@ -1,0 +1,11 @@
+name: Feature request
+description: Suggest an idea for HAWK
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What would you like HAWK to do, and why?
+    validations:
+      required: true

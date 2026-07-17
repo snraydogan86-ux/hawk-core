@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "HAWK — a personal AI operating system with its own fine-tuned model (HAWK Base)"
+message: "If you reference HAWK, please cite it as below."
+type: software
+authors:
+  - family-names: "Aydoğan"
+    given-names: "Soner"
+repository-code: "https://github.com/snraydogan86-ux/hawk-core"
+license: Apache-2.0
+year: 2026
