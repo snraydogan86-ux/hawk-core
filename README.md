@@ -46,13 +46,14 @@
 ## See it in action
 
 <div align="center">
-<img src="docs/assets/screenshots/01_chat.png" alt="Chat" width="220"/>
-<img src="docs/assets/screenshots/02_voice.png" alt="Live voice" width="220"/>
-<img src="docs/assets/screenshots/03_workspace.png" alt="Workspace — phone → PC" width="220"/>
-<img src="docs/assets/screenshots/04_file.png" alt="File & image analysis" width="220"/>
+<img src="docs/assets/screenshots/01_home.png" alt="Home" width="180"/>
+<img src="docs/assets/screenshots/02_chat.png" alt="Chat" width="180"/>
+<img src="docs/assets/screenshots/03_voice.png" alt="Live voice" width="180"/>
+<img src="docs/assets/screenshots/04_file.png" alt="File & image analysis" width="180"/>
+<img src="docs/assets/screenshots/05_workspace.png" alt="Workspace — phone → PC" width="180"/>
 </div>
 
-<div align="center"><sub>Real screenshots from the live app · chat · natural voice · connect your PC and run tasks · image & file analysis</sub></div>
+<div align="center"><sub>Real screenshots from the live app (App Store build) · home · chat · natural voice · file &amp; image analysis · workspace (phone → PC)</sub></div>
 
 ---
 ## Quickstart
